@@ -7,7 +7,7 @@ const authRoutes = require('./routes/auth.routes');
 const productRoutes = require('./routes/product.routes');
 const cartRoutes = require('./routes/cart.routes');
 const userRoutes = require('./routes/user.routes');
-
+const orderRoutes = require('./routes/order.routes')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -23,7 +23,8 @@ app.get('/',(req,res)=>{
 app.use('/api/products',productRoutes);
 app.use('/api/auth',authRoutes)
 app.use('/api/cart',cartRoutes);
-app.use('/api/user',userRoutes)
+app.use('/api/user',userRoutes);
+app.use('/api/order',orderRoutes)
 
 //Database config
 mongoose.connect(process.env.MONGO_URL,{
